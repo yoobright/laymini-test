@@ -34,6 +34,12 @@
           "target": "_self"
         },
         {
+          "title": "身体部位测试",
+          "href": "page/body.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
           "title": "表单示例",
           "href": "",
           "icon": "fa fa-calendar",
