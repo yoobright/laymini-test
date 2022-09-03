@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>首页三</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="../lib/layui-v2.6.3/css/layui.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="../lib/font-awesome-4.7.0/css/font-awesome.min.css"
+      media="all"
+    />
+    <link rel="stylesheet" href="../css/public.css" media="all" />
+    <style>
+      /* .top-panel {
+            border: 1px solid #eceff9;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .top-panel > .layui-card-body{
+            height: 60px;
+        }
+        .top-panel-number{
+            line-height:60px;
+            font-size: 30px;
+            border-right:1px solid #eceff9;
+        }
+        .top-panel-tips{
+            line-height:30px;
+            font-size: 12px
+        } */
+    </style>
+  </head>
+  <body>
+    <!--<div class="layuimini-container">-->
+    <div class="layuimini-main">
+      <div id="container" style="height: 100%;min-height:500px"></div>
+      <div id="body-view" style="height: 100%;min-height:500px"></div>
+
+      <div id="echarts-records" style="width: 100%;min-height:500px"></div>
+    </div>
+    <!--</div>-->
+    <script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+    <script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+    <script>
+      layui.use(["layer", "echarts"], function () {
+        var $ = layui.jquery,
+          layer = layui.layer,
+          echarts = layui.echarts;
+
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom, null, {
+          renderer: "canvas",
+          useDirtyRect: false,
+        });
+        var app = {};
+        // var ROOT_PATH = "https://echarts.apache.org/examples";
+        var option;
+
+        // $.get("../data/asset/flight-seats.svg", function (svg) {
+        //   echarts.registerMap("flight-seats", { svg: svg });
+        // //   const takenSeatNames = [
+        // //     "26E",
+        // //     "26D",
+        // //     "26C",
+        // //     "25D",
+        // //     "23C",
+        // //     "21A",
+        // //     "20F",
+        // //   ];
+        //   option = {
+        //     tooltip: {},
+        //     geo: {
+        //       map: "flight-seats",
+        //       roam: true,
+        //       selectedMode: "multiple",
+        //       layoutCenter: ["50%", "50%"],
+        //       layoutSize: "95%",
+        //       tooltip: {
+        //         show: true,
+        //       },
+        //       itemStyle: {
+        //         color: "#fff",
+        //       },
+        //       emphasis: {
+        //         itemStyle: {
+        //           color: undefined,
+        //           borderColor: "green",
+        //           borderWidth: 2,
+        //         },
+        //         label: {
+        //           show: false,
+        //         },
+        //       },
+        //       select: {
+        //         itemStyle: {
+        //           color: "green",
+        //         },
+        //         label: {
+        //           show: false,
+        //           textBorderColor: "#fff",
+        //           textBorderWidth: 2,
+        //         },
+        //       },
+        //     //   regions: makeTakenRegions(takenSeatNames),
+        //     },
+        //   };
+        // //   function makeTakenRegions(takenSeatNames) {
+        // //     var regions = [];
+        // //     for (var i = 0; i < takenSeatNames.length; i++) {
+        // //       regions.push({
+        // //         name: takenSeatNames[i],
+        // //         silent: true,
+        // //         itemStyle: {
+        // //           color: "#bf0e08",
+        // //         },
+        // //         emphasis: {
+        // //           itemStyle: {
+        // //             borderColor: "#aaa",
+        // //             borderWidth: 1,
+        // //           },
+        // //         },
+        // //         select: {
+        // //           itemStyle: {
+        // //             color: "#bf0e08",
+        // //           },
+        // //         },
+        // //       });
+        // //     }
+        // //     return regions;
+        // //   }
+        //   myChart.setOption(option);
+        //   // Get selected seats.
+        //   myChart.on("geoselectchanged", function (params) {
+        //     const selectedNames = params.allSelected[0].name.slice();
+        //     // // Remove taken seats.
+        //     // for (var i = selectedNames.length - 1; i >= 0; i--) {
+        //     //   if (takenSeatNames.indexOf(selectedNames[i]) >= 0) {
+        //     //     selectedNames.splice(i, 1);
+        //     //   }
+        //     // }
+        //     console.log("selected", selectedNames);
+        //   });
+        // });
+
+        var domBody = document.getElementById("body-view");
+        var bodyChart = echarts.init(dom, null, {
+          renderer: "svg",
+        //   useDirtyRect: false,
+        });
+
+        $.get("../data/asset/body-view.svg", function (svg) {
+          echarts.registerMap("body-view", { svg: svg });
+          option = {
+            tooltip: {},
+            geo: {
+              map: "body-view",
+              roam: true,
+              selectedMode: "multiple",
+              layoutCenter: ["50%", "50%"],
+              layoutSize: "95%",
+              tooltip: {
+                show: true,
+              },
+              itemStyle: {
+                color: "#fff",
+              },
+              emphasis: {
+                itemStyle: {
+                  color: undefined,
+                  borderColor: "green",
+                  borderWidth: 2,
+                },
+                label: {
+                  show: false,
+                },
+              },
+              select: {
+                itemStyle: {
+                  color: "green",
+                },
+                label: {
+                  show: false,
+                  textBorderColor: "#fff",
+                  textBorderWidth: 2,
+                },
+              },
+            //   regions: makeTakenRegions(takenSeatNames),
+            },
+          };
+          bodyChart.setOption(option);
+          bodyChart.on("geoselectchanged", function (params) {
+            const selectedNames = params.allSelected[0].name.slice();
+            // // Remove taken seats.
+            // for (var i = selectedNames.length - 1; i >= 0; i--) {
+            //   if (takenSeatNames.indexOf(selectedNames[i]) >= 0) {
+            //     selectedNames.splice(i, 1);
+            //   }
+            // }
+            console.log("selected", selectedNames);
+          });
+        });
+
+        // if (option && typeof option === "object") {
+        //   myChart.setOption(option);
+        // }
+
+        // window.addEventListener("resize", myChart.resize);
+
+        // var echartsRecords = echarts.init(document.getElementById('echarts-records'), 'walden');
+        // var optionRecords = {
+        //     tooltip: {
+        //         trigger: 'axis'
+        //     },
+        //     legend: {
+        //         data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+        //     },
+        //     grid: {
+        //         left: '3%',
+        //         right: '4%',
+        //         bottom: '3%',
+        //         containLabel: true
+        //     },
+        //     toolbox: {
+        //         feature: {
+        //             saveAsImage: {}
+        //         }
+        //     },
+        //     xAxis: {
+        //         type: 'category',
+        //         boundaryGap: false,
+        //         data: ['周一','周二','周三','周四','周五','周六','周日']
+        //     },
+        //     yAxis: {
+        //         type: 'value'
+        //     },
+        //     series: [
+        //         {
+        //             name:'邮件营销',
+        //             type:'line',
+        //             data:[120, 132, 101, 134, 90, 230, 210]
+        //         },
+        //         {
+        //             name:'联盟广告',
+        //             type:'line',
+        //             data:[220, 182, 191, 234, 290, 330, 310]
+        //         },
+        //         {
+        //             name:'视频广告',
+        //             type:'line',
+        //             data:[150, 232, 201, 154, 190, 330, 410]
+        //         },
+        //         {
+        //             name:'直接访问',
+        //             type:'line',
+        //             data:[320, 332, 301, 334, 390, 330, 320]
+        //         },
+        //         {
+        //             name:'搜索引擎',
+        //             type:'line',
+        //             data:[820, 932, 901, 934, 1290, 1330, 1320]
+        //         }
+        //     ]
+        // };
+        // echartsRecords.setOption(optionRecords);
+        console.log(echarts.version);
+
+      });
+    </script>
+  </body>
+</html>
