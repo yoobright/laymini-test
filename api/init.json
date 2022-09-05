@@ -4,7 +4,7 @@
     "href": "page/welcome-1.html?t=1"
   },
   "logoInfo": {
-    "title": "LAYUI MINI",
+    "title": "后台管理",
     "image": "images/logo.png",
     "href": ""
   },
@@ -34,8 +34,14 @@
           "target": "_self"
         },
         {
-          "title": "身体部位测试",
-          "href": "page/body.html",
+          "title": "tab测试",
+          "href": "page/tab.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "tab测试结果",
+          "href": "page/tab_res.html",
           "icon": "fa fa-file-text",
           "target": "_self"
         },

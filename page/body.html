@@ -41,14 +41,14 @@
     </style>
   </head>
   <body>
-    <!--<div class="layuimini-container">-->
-    <div class="layuimini-main">
-      <div id="container" style="height: 100%;min-height:500px"></div>
-      <div id="body-view" style="height: 100%;min-height:500px"></div>
+    <div class="layuimini-container">
+      <div class="layuimini-main">
+        <div id="container" style="height: 100%; min-height: 500px"></div>
+        <div id="body-view" style="height: 100%; min-height: 500px"></div>
 
-      <div id="echarts-records" style="width: 100%;min-height:500px"></div>
+        <div id="echarts-records" style="width: 100%; min-height: 500px"></div>
+      </div>
     </div>
-    <!--</div>-->
     <script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
     <script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
     <script>
@@ -155,7 +155,7 @@
         var domBody = document.getElementById("body-view");
         var bodyChart = echarts.init(dom, null, {
           renderer: "svg",
-        //   useDirtyRect: false,
+          //   useDirtyRect: false,
         });
 
         $.get("../data/asset/body-view.svg", function (svg) {
@@ -194,7 +194,7 @@
                   textBorderWidth: 2,
                 },
               },
-            //   regions: makeTakenRegions(takenSeatNames),
+              //   regions: makeTakenRegions(takenSeatNames),
             },
           };
           bodyChart.setOption(option);
@@ -273,7 +273,6 @@
         // };
         // echartsRecords.setOption(optionRecords);
         console.log(echarts.version);
-
       });
     </script>
   </body>

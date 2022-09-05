@@ -52,6 +52,8 @@
         // 计算每一个条目的宽度
         var bfb = 100 / stepItems.length;
         $('.step-item').css('width', bfb + '%');
+        $('.step-item:last-of-type').css('width', bfb / 2 + '%');
+         
     };
 
     var step = {

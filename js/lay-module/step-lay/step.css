@@ -5,6 +5,11 @@
     max-width: 100%;
     padding-left: 200px;
 }
+@media screen and (max-width: 768px) {
+    .lay-step {
+        padding-left: 10px;
+    }
+}
 
 .step-item {
     display: inline-block;
@@ -59,6 +64,12 @@
     margin-right: 50%;
     padding-left: 26px;
     text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .step-item-main {
+        margin-right: 0%;
+    }
 }
 
 .step-item-main-title {
