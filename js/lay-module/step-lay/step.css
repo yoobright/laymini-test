@@ -11,6 +11,12 @@
     }
 }
 
+@media screen and (min-width: 1400px) {
+    .lay-step {
+        padding-left: 320px;
+    }
+}
+
 .step-item {
     display: inline-block;
     line-height: 26px;

@@ -31,6 +31,33 @@
         max-height: 400px;
         overflow-y: scroll;
       }
+      .layui-btn-primary:hover {
+        border-color: #1e9fff;
+      }
+
+      .layui-form-checkbox {
+        line-height: 24px;
+        height: 24px;
+        padding-right: 24px;
+      }
+
+      .layui-form-checkbox i {
+        height: 22px;
+        font-size: 16px;
+        width: 24px;
+      }
+
+      @media screen and (max-width: 768px) {
+        .layui-fluid {
+          padding: 0 0;
+        }
+        .layui-card-body {
+          padding: 0 0;
+        }
+        body {
+          margin: 15px 0px 15px 0px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -53,7 +80,7 @@
                         margin: 0 auto;
                         max-width: 1000px;
                         padding-top: 40px;
-                        max-height: 400px;
+                        max-height: 500px;
                         overflow-y: scroll;
                       "
                     >
@@ -250,7 +277,7 @@
                       <div class="layui-form-item">
                         <div class="layui-input-block">
                           <button
-                            class="layui-btn"
+                            class="layui-btn layui-btn-normal"
                             lay-submit
                             lay-filter="formStep"
                           >
@@ -267,7 +294,7 @@
                         margin: 0 auto;
                         max-width: 1000px;
                         padding-top: 40px;
-                        max-height: 400px;
+                        max-height: 500px;
                         overflow-y: scroll;
                       "
                     >
@@ -313,7 +340,9 @@
                         </div>
                       </div>
                       <div class="layui-form-item">
-                        <label class="layui-form-label" id="user_pain_character_label"
+                        <label
+                          class="layui-form-label"
+                          id="user_pain_character_label"
                           >疼痛性质 （多选）</label
                         >
                       </div>
@@ -323,36 +352,79 @@
                           <div class="layui-form-mid layui-word-aux">xxx</div>
                         </div>
                       </div>
+
                       <div class="layui-form-item">
-                        <label class="layui-form-label">疼痛加重因素</label>
-                        <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">xxx</div>
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label"
+                        <label
+                          class="layui-form-label"
+                          id="user_pain_aggr_factor_label"
                           >疼痛加重因素 （多选）</label
                         >
-                        <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">xxx</div>
-                        </div>
                       </div>
                       <div class="layui-form-item">
-                        <label class="layui-form-label">疼痛缓解因素 （多选）</label>
-                        <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">xxx</div>
-                        </div>
+                        <label
+                          class="layui-form-label"
+                          id="user_pain_reli_factor_label"
+                          >疼痛缓解因素 （多选）</label
+                        >
                       </div>
                       <div class="layui-form-item">
                         <label class="layui-form-label">疼痛爆发类型</label>
                         <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">xxx</div>
+                          <input
+                            type="radio"
+                            name="user_pain_breakout_type"
+                            id="user_pain_breakout_type"
+                            value="1"
+                            title="与特定活动或事件相关联"
+                          />
+                          <input
+                            type="radio"
+                            name="user_pain_breakout_type"
+                            id="user_pain_breakout_type"
+                            value="2"
+                            title="发生在按时给予镇痛药物的剂量间隔结束时"
+                          />
+
+                          <input
+                            type="radio"
+                            name="user_pain_breakout_type"
+                            id="user_pain_breakout_type"
+                            value="3"
+                            title="控制不佳的持续性疼痛"
+                          />
+                          <input
+                            type="radio"
+                            name="user_pain_breakout_type"
+                            id="user_pain_breakout_type"
+                            value="4"
+                            title="无"
+                          />
                         </div>
                       </div>
                       <div class="layui-form-item">
                         <label class="layui-form-label">疼痛爆发频率</label>
                         <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">xxx</div>
+                          <input
+                            type="radio"
+                            name="user_pain_breakout_freq"
+                            id="user_pain_breakout_freq"
+                            value="1"
+                            title="&lt;3"
+                          />
+                          <input
+                            type="radio"
+                            name="user_pain_breakout_freq"
+                            id="user_pain_breakout_freq"
+                            value="2"
+                            title="≥3"
+                          />
+                          <input
+                            type="radio"
+                            name="user_pain_breakout_freq"
+                            id="user_pain_breakout_freq"
+                            value="3"
+                            title="无"
+                          />
                         </div>
                       </div>
                       <!-- <div class="layui-form-item">
@@ -406,7 +478,7 @@
                             上一步
                           </button>
                           <button
-                            class="layui-btn"
+                            class="layui-btn layui-btn-normal"
                             lay-submit
                             lay-filter="formStep2"
                           >
@@ -465,7 +537,6 @@
                 "
               >
                 <h3>说明</h3>
-                <br />
                 <p>如果需要，这里可以放一些关于产品的常见问题说明。</p>
               </div>
             </div>
