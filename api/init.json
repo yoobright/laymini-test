@@ -34,6 +34,12 @@
           "target": "_self"
         },
         {
+          "title": "疼痛评估决策",
+          "href": "page/painDecision.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
           "title": "tab测试",
           "href": "page/tab.html",
           "icon": "fa fa-file-text",
