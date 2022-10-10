@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>决策结果</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="../lib/layui-v2.6.3/css/layui.css"
+      media="all"
+    />
+    <link rel="stylesheet" href="../css/public.css" media="all" />
+    <link
+      rel="stylesheet"
+      href="../js/lay-module/step-lay/step.css"
+      media="all"
+    />
+    <style>
+      h3 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 30px;
+        margin-left: 40px;
+      }
+      .layui-form-label {
+        width: 100px;
+        font-size: medium;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layuimini-container">
+      <div class="layuimini-main">
+        <div class="layui-fluid">
+          <div class="layui-card">
+            <div style="padding-top: 40px">
+              <h3>辅助决策结果</h3>
+              <div class="layui-form-item">
+                <label class="layui-form-label">既往用药存在问题及原因</label>
+                <div class="layui-input-block"></div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label">系统用药决策方案推荐</label>
+                <div class="layui-input-block"></div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label">用药列表</label>
+                <div class="layui-input-block"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+    <script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+    <script>
+      layui.use(["form", "step"], function () {
+        var $ = layui.$,
+          form = layui.form,
+          step = layui.step;
+      });
+    </script>
+  </body>
+</html>

@@ -13,15 +13,27 @@ layui.use(["form", "miniTab", "step"], function () {
                 return `选项'${text}'不能为空`;
             }
         },
+        checkBoxRequired: function (value, item) {
+            const inputBlock = $(item);
+            const inputChecked = inputBlock.find("input:checked");
+            const text = inputBlock.prev().text();
+            if (inputChecked.length === 0) {
+                return `选项'${text}'不能为空`;
+            }
+        },
     });
 
-    function addCheckBox(forType, elementList, required = "") {
+    function addCheckBox(forType, elementList, required = false) {
 
         const labelElement = $(`label#${forType}_label`);
 
         if (labelElement.length > 0) {
-            const blockElement =
-                $(`<div class="layui-input-block" id="${forType}_block">`);
+            const blockElement = 
+            $(`<div class="layui-input-block" id="${forType}_block">`);
+            if (required) {
+                blockElement.attr("lay-verify", "radioRequired");
+            }
+            
             if (Array.isArray(elementList[0])) {
                 const items = elementList.map((v) =>
                     `<input type="checkbox" name="${forType}" id="${forType}" 
@@ -64,7 +76,7 @@ layui.use(["form", "miniTab", "step"], function () {
         ["尖锐痛", 25],
     ];
     const userPainCharacterTag = "user_pain_character";
-    addCheckBox(userPainCharacterTag, userPainCharacterList);
+    addCheckBox(userPainCharacterTag, userPainCharacterList, true);
 
     // userPainAggrFactor
     const userPainAggrFactorList = [
@@ -210,11 +222,11 @@ layui.use(["form", "miniTab", "step"], function () {
 
     form.on("submit(formStep3)", function (data) {
         layui.layer.msg("提交成功");
-        const herfTab =  "page/painResult.html";
+        const herfTab = "page/painResult.html";
         miniTab.openNewTabByIframe({
             href: herfTab,
-            title: "按钮示例",
-          });
+            title: "辅助决策结果",
+        });
         return false;
     });
 
@@ -226,9 +238,12 @@ layui.use(["form", "miniTab", "step"], function () {
         step.next("#stepForm");
     });
 
-    $(".new").click(function () {
+    $(".renew").click(function () {
         layui.layer.msg("重新输入");
-        step.next("#stepForm");
+        // clearInputData();
+        // layui.form.render();
+        // step.next("#stepForm");
+        location.reload();
     });
 
     // ========================================================================
@@ -358,7 +373,21 @@ layui.use(["form", "miniTab", "step"], function () {
     }, true);
 
     // ========================================================================
+    function clearInputData() {
+        $("[id^=user_]").filter(function () {
+            return this.type === "text";
+        }).val("");
 
+        $("[id^=user_]").filter(function () {
+            return this.type === "radio";
+        }).prop("checked", false);
+
+        $("[id^=user_]").filter(function () {
+            return this.type === "checkbox";
+        }).prop("checked", false);
+
+        $("#used_drug").prop("checked", false);
+    }
 
 
 });

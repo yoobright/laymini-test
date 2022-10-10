@@ -123,6 +123,8 @@
                           <input
                             type="text"
                             class="layui-input"
+                            name="user_name"
+                            id="user_name"
                             lay-verify="required"
                             required
                           />
@@ -137,6 +139,8 @@
                             type="text"
                             placeholder="请填写手机号"
                             class="layui-input"
+                            name="user_id"
+                            id="user_id"
                             lay-verify="number"
                             required
                           />
@@ -324,6 +328,8 @@
                               placeholder="请在图片上选择疼痛部位..."
                               id="user_pain_part"
                               readonly
+                              lay-verify="required"
+                              required
                             ></textarea>
                           </div>
                         </div>
@@ -476,7 +482,6 @@
                             id="used_drug"
                             value="1"
                             title="是"
-                            disabled=""
                           />
                           <input
                             type="radio"
@@ -489,7 +494,7 @@
                       </div>
                     </form>
                     <div style="text-align: center; margin-top: 50px">
-                      <button class="layui-btn layui-btn-primary new">
+                      <button class="layui-btn layui-btn-primary renew">
                         新的输入
                       </button>
                       <button class="layui-btn layui-btn-primary pre">
