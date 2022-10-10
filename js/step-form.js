@@ -143,6 +143,35 @@ layui.use(["form", "step"], function () {
                 "background",
                 change_color_list[value]
             );
+
+            const painDoc =
+                document.getElementById("pain-level-image").contentDocument;
+            if (painDoc !== null) {
+                // console.log(painDoc);
+                const painDocSelect = d3.select(painDoc);
+                const painG = painDocSelect.selectAll("g").filter(function () {
+                    return d3.select(this).attr("id").startsWith("pain");
+                });
+                painG.selectAll("text").style("font-weight", "normal");
+
+                const selectStr = `#pain-desc-level${value}, #pain-label-level${value}`
+
+                painDocSelect
+                    .selectAll(selectStr)
+                    .selectAll("text")
+                    .style("font-weight", "bold");
+
+                // flag
+                const painFlag = painDocSelect.selectAll("g").filter(function () {
+                    return d3.select(this).attr("id").startsWith("pain-flag");
+                });
+                const changeFlag = painDocSelect.select("#pain-flag-level" + value);
+                // console.log(painFlag);
+                // console.log(changeFlag);
+
+                painFlag.selectAll("path").style("stroke-width", 0.25);
+                changeFlag.selectAll("path").style("stroke-width", 2);
+            }
         });
     }
 
