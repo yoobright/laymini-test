@@ -52,6 +52,12 @@
           "target": "_self"
         },
         {
+          "title": "表格测试",
+          "href": "page/datatable.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
           "title": "表单示例",
           "href": "",
           "icon": "fa fa-calendar",
