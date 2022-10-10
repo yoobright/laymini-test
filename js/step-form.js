@@ -94,6 +94,58 @@ layui.use(["form", "step"], function () {
     const userPainReliFactorTag = "user_pain_reli_factor";
     addCheckBox(userPainReliFactorTag, userPainReliFactorList);
 
+
+    var marginSlider = document.getElementById("pain_leval_slider");
+    // console.log(marginSlider);
+    if (marginSlider !== undefined) {
+        noUiSlider.create(marginSlider, {
+            start: [0],
+            step: 1,
+            connect: [true, false],
+            tooltips: [true],
+            range: {
+                min: 0,
+                max: 10,
+            },
+            pips: {
+                mode: "steps",
+                stepped: true,
+                density: 10,
+            },
+            format: {
+                from: function (value) {
+                    return parseInt(value);
+                },
+                to: function (value) {
+                    return parseInt(value);
+                },
+            },
+        });
+        // var marginMin = document.getElementById("value-lower"),
+        //   marginMax = document.getElementById("value-upper");
+        const change_color_list = [
+            "#edccae",
+            "#e6b287",
+            "#e6b287",
+            "#e6b287",
+            "#b35d21",
+            "#b35d21",
+            "#b35d21",
+            "#b35d21",
+            "#773e14",
+            "#773e14",
+            "#773e14",
+        ];
+        marginSlider.noUiSlider.on("update", (values, handle) => {
+            console.log(values);
+            const value = values[0];
+            $("#pain_leval_slider .noUi-connect").css(
+                "background",
+                change_color_list[value]
+            );
+        });
+    }
+
     form.render();
 
     step.render({
@@ -130,6 +182,11 @@ layui.use(["form", "step"], function () {
     });
 
     $(".next").click(function () {
+        step.next("#stepForm");
+    });
+
+    $(".new").click(function () {
+        layui.layer.msg("重新输入");
         step.next("#stepForm");
     });
 

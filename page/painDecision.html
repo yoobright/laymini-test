@@ -20,6 +20,7 @@
       href="../js/lay-module/step-lay/step.css"
       media="all"
     />
+    <link rel="stylesheet" href="../js/nouislider.min.css" media="all" />
     <style>
       .layui-input {
         max-width: 400px;
@@ -349,7 +350,16 @@
                       <div class="layui-form-item">
                         <label class="layui-form-label">疼痛强度</label>
                         <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">xxx</div>
+                          <div style="height: 40px"></div>
+                          <div
+                            style="
+                              height: 60px;
+                              margin-right: 20px;
+                              max-width: 560px;
+                            "
+                          >
+                            <div id="pain_leval_slider"></div>
+                          </div>
                         </div>
                       </div>
 
@@ -489,39 +499,53 @@
                     </form>
                   </div>
                   <div>
-                    <div style="text-align: center; margin-top: 90px">
-                      <i
-                        class="layui-icon layui-circle"
-                        style="
-                          color: white;
-                          font-size: 30px;
-                          font-weight: bold;
-                          background: #52c41a;
-                          padding: 20px;
-                          line-height: 80px;
-                        "
-                        >&#xe605;</i
-                      >
-                      <div
-                        style="
-                          font-size: 24px;
-                          color: #333;
-                          font-weight: 500;
-                          margin-top: 30px;
-                        "
-                      >
-                        入款成功
+                    <form
+                      class="layui-form"
+                      style="
+                        margin: 0 auto;
+                        max-width: 1000px;
+                        padding-top: 40px;
+                        max-height: 500px;
+                        overflow-y: scroll;
+                      "
+                    >
+                      <div class="layui-form-item">
+                        <label class="layui-form-label"
+                          >既往是否使用过镇痛药<span style="color: crimson"
+                            >*
+                          </span></label
+                        >
+                        <div
+                          class="layui-input-block"
+                          lay-verify="radioRequired"
+                        >
+                          <input
+                            type="radio"
+                            name="used_drug"
+                            id="used_drug"
+                            value="1"
+                            title="是"
+                            disabled=""
+                          />
+                          <input
+                            type="radio"
+                            name="used_drug"
+                            id="used_drug"
+                            value="0"
+                            title="否"
+                          />
+                        </div>
                       </div>
-                      <div
-                        style="font-size: 14px; color: #666; margin-top: 20px"
-                      >
-                        预计两小时到账
-                      </div>
-                    </div>
+                    </form>
                     <div style="text-align: center; margin-top: 50px">
-                      <button class="layui-btn next">再入一笔</button>
-                      <button class="layui-btn layui-btn-primary">
-                        查看账单
+                      <button class="layui-btn layui-btn-primary new">
+                        新的输入
+                      </button>
+                      <button class="layui-btn layui-btn-primary pre">
+                        上一步
+                      </button>
+                      <button class="layui-btn layui-btn-normal">
+                        &emsp;提交&emsp;
                       </button>
                     </div>
                   </div>
@@ -547,5 +571,6 @@
     <script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
     <script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
     <script src="../js/step-form.js"></script>
+    <script src="../js/nouislider.min.js"></script>
   </body>
 </html>
