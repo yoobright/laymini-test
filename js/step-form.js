@@ -1,7 +1,8 @@
-layui.use(["form", "step"], function () {
+layui.use(["form", "miniTab", "step"], function () {
     var $ = layui.$,
         form = layui.form,
-        step = layui.step;
+        step = layui.step,
+        miniTab = layui.miniTab;
 
     form.verify({
         radioRequired: function (value, item) {
@@ -204,6 +205,16 @@ layui.use(["form", "step"], function () {
 
     form.on("submit(formStep2)", function (data) {
         step.next("#stepForm");
+        return false;
+    });
+
+    form.on("submit(formStep3)", function (data) {
+        layui.layer.msg("提交成功");
+        const herfTab =  "page/painResult.html";
+        miniTab.openNewTabByIframe({
+            href: herfTab,
+            title: "按钮示例",
+          });
         return false;
     });
 

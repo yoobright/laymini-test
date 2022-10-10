@@ -67,6 +67,17 @@
         width: 24px;
       }
 
+      .layui-form-checked span,
+      .layui-form-checked:hover span {
+        background-color: #1e9fff;
+      }
+
+      .layui-form-radio:hover *,
+      .layui-form-radioed,
+      .layui-form-radioed > i {
+        color: #1e9fff;
+      }
+
       @media screen and (max-width: 768px) {
         .layui-fluid {
           padding: 0 0;
@@ -239,16 +250,14 @@
                           <input type="text" class="layui-input" />
                         </div>
                       </div>
-                      <div class="layui-form-item">
-                        <div class="layui-input-block">
-                          <button
-                            class="layui-btn layui-btn-normal"
-                            lay-submit
-                            lay-filter="formStep"
-                          >
-                            &emsp;下一步&emsp;
-                          </button>
-                        </div>
+                      <div style="text-align: center">
+                        <button
+                          class="layui-btn layui-btn-normal"
+                          lay-submit
+                          lay-filter="formStep"
+                        >
+                          &emsp;下一步&emsp;
+                        </button>
                       </div>
                     </form>
                   </div>
@@ -423,64 +432,20 @@
                           />
                         </div>
                       </div>
-                      <!-- <div class="layui-form-item">
-                        <label class="layui-form-label">账户余额:</label>
-                        <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">
-                            3000 元（保险箱：1000，现金：2000）
-                          </div>
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">入款金额:</label>
-                        <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">
-                            <span style="font-size: 18px; color: #333"
-                              >1800 元</span
-                            >
-                          </div>
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">入款类型:</label>
-                        <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">
-                            保险箱
-                          </div>
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">入款方式:</label>
-                        <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">
-                            人工入款
-                          </div>
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">备注说明:</label>
-                        <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">
-                            备注说明
-                          </div>
-                        </div>
-                      </div> -->
-                      <div class="layui-form-item">
-                        <div class="layui-input-block">
-                          <button
-                            type="button"
-                            class="layui-btn layui-btn-primary pre"
-                          >
-                            上一步
-                          </button>
-                          <button
-                            class="layui-btn layui-btn-normal"
-                            lay-submit
-                            lay-filter="formStep2"
-                          >
-                            &emsp;下一步&emsp;
-                          </button>
-                        </div>
+                      <div style="text-align: center">
+                        <button
+                          type="button"
+                          class="layui-btn layui-btn-primary pre"
+                        >
+                          上一步
+                        </button>
+                        <button
+                          class="layui-btn layui-btn-normal"
+                          lay-submit
+                          lay-filter="formStep2"
+                        >
+                          &emsp;下一步&emsp;
+                        </button>
                       </div>
                     </form>
                   </div>
@@ -530,7 +495,11 @@
                       <button class="layui-btn layui-btn-primary pre">
                         上一步
                       </button>
-                      <button class="layui-btn layui-btn-normal">
+                      <button
+                        class="layui-btn layui-btn-normal"
+                        lay-submit
+                        lay-filter="formStep3"
+                      >
                         &emsp;提交&emsp;
                       </button>
                     </div>
@@ -546,8 +515,8 @@
                   padding-left: 20px;
                 "
               >
-                <h3>说明</h3>
-                <p>如果需要，这里可以放一些关于产品的常见问题说明。</p>
+                <!-- <h3>说明</h3>
+                <p>如果需要，这里可以放一些关于产品的常见问题说明。</p> -->
               </div>
             </div>
           </div>
