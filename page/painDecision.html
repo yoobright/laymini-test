@@ -22,6 +22,25 @@
     />
     <link rel="stylesheet" href="../js/nouislider.min.css" media="all" />
     <style>
+      .layui-form-label {
+        width: 100px;
+        font-size: medium;
+        font-weight: bold;
+      }
+      div.input-textarea {
+        display: inline;
+      }
+      .layui-form-item .layui-input-inline {
+        width: fit-content;
+      }
+
+      div.input-textarea textarea {
+        width: 360px;
+        max-width: 360px;
+        max-height: 200px;
+        margin-bottom: 40px;
+        margin-left: 20px;
+      }
       .layui-input {
         max-width: 400px;
       }
@@ -220,61 +239,6 @@
                           <input type="text" class="layui-input" />
                         </div>
                       </div>
-                      <!-- <div class="layui-form-item">
-                        <label class="layui-form-label">游戏ID:</label>
-                        <div class="layui-input-block">
-                          <input
-                            type="text"
-                            placeholder="请填写入款人游戏ID"
-                            class="layui-input"
-                            lay-verify="number"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">入款金额:</label>
-                        <div class="layui-input-block">
-                          <input
-                            type="number"
-                            placeholder="请填写入款金额"
-                            value=""
-                            class="layui-input"
-                            lay-verify="number"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">入款类型:</label>
-                        <div class="layui-input-block">
-                          <select lay-verify="required">
-                            <option value="1" selected>保险箱</option>
-                            <option value="2">现金</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">入款方式:</label>
-                        <div class="layui-input-block">
-                          <select lay-verify="required">
-                            <option value="1" selected>人工入款</option>
-                            <option value="2">修正</option>
-                            <option value="3">活动</option>
-                            <option value="4">佣金</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">备注说明:</label>
-                        <div class="layui-input-block">
-                          <textarea
-                            placeholder="入款备注"
-                            value=""
-                            class="layui-textarea"
-                          ></textarea>
-                        </div> -->
-                      <!-- </div> -->
                       <div class="layui-form-item">
                         <div class="layui-input-block">
                           <button
@@ -336,8 +300,23 @@
                         <label class="layui-form-label"
                           >疼痛部位 （多选）</label
                         >
-                        <div class="layui-input-block">
-                          <div class="layui-form-mid layui-word-aux">xxx</div>
+                        <div class="layui-input-inline">
+                          <object
+                            id="body-view-image"
+                            type="image/svg+xml"
+                            data="../images/body_view.svg"
+                            width="400px"
+                          ></object>
+                          <div class="input-textarea">
+                            <textarea
+                              rows="6"
+                              class="required"
+                              name="user_pain_part"
+                              placeholder="请在图片上选择疼痛部位..."
+                              id="user_pain_part"
+                              readonly
+                            ></textarea>
+                          </div>
                         </div>
                       </div>
                       <div class="layui-form-item">

@@ -136,6 +136,7 @@ layui.use(["form", "step"], function () {
             "#773e14",
             "#773e14",
         ];
+
         marginSlider.noUiSlider.on("update", (values, handle) => {
             console.log(values);
             const value = values[0];
@@ -219,6 +220,133 @@ layui.use(["form", "step"], function () {
         step.next("#stepForm");
     });
 
+    // ========================================================================
+    // body view
+    const bodyKV = {
+        "1": "面部",
+        "2": "头后部",
+        "3": "右上臂（内侧）",
+        "4": "右上臂（外侧）",
+        "5": "左上臂（内侧）",
+        "6": "左上臂（外侧）",
+        "7": "右前臂（内侧）",
+        "8": "右前臂（外侧）",
+        "9": "左前臂（内侧）",
+        "10": "左前臂（外侧）",
+        "11": "右手",
+        "12": "左手",
+        "13": "颈胸部",
+        "14": "颈背部",
+        "15": "腹部（前）",
+        "16": "腹部（后）",
+        "17": "腰部（前）",
+        "18": "腰部（后）",
+        "19": "盆部（右）",
+        "20": "腰骶部（右）",
+        "21": "臀部（右）",
+        "22": "盆部（左）",
+        "23": "腰骶部（左）",
+        "24": "臀部（左）",
+        "25": "大腿（右前）",
+        "26": "大腿（右后）",
+        "27": "大腿（左前）",
+        "28": "大腿（左后）",
+        "29": "小腿（右前）",
+        "30": "小腿（右后）",
+        "31": "小腿（左前）",
+        "32": "小腿（左后）",
+        "33": "右足",
+        "34": "左足"
+    }
+
+    function togglePartView(p) {
+        const dataSelceted = p.attr("data_selceted");
+        // console.log('svg click!!!!', this.id, data_selceted);
+        if (dataSelceted === "true") {
+            p.attr("data_selceted", "false");
+            p.classed("st1", true);
+            p.classed("st1_selected", false);
+            p.style("opacity", 0.5);
+            p.style("fill", "");
+        } else {
+            p.attr("data_selceted", "true");
+            p.classed("st1", false);
+            p.classed("st1_selected", true);
+            p.style("opacity", 0.4);
+        }
+    }
+
+    function updateBodySelected(bodyId, currentSelect, bodyPloygon) {
+        if (bodyId.match(/\d+/u)) {
+            togglePartView(currentSelect, bodyId);
+            const bodySelect = bodyPloygon.filter("[data_selceted='true']");
+            const selectIDList = bodySelect._groups[0].map((value) => {
+                return value.id.split("_")[2];
+            });
+
+            console.log(selectIDList);
+            const selectNameList = selectIDList.map((id) => {
+                return bodyKV[id];
+            });
+
+            const currentNameList = $("#user_pain_part")
+                .text()
+                .trim()
+                .split(", ")
+                .filter((v) => v !== "");
+
+            console.log("select: " + selectNameList);
+            console.log("current: " + currentNameList);
+
+            const updateNameList = (function (current, select) {
+                if (current.length < select.length) {
+                    const addNameList = select.filter((v) => current.indexOf(v) === -1);
+                    console.log("add: " + addNameList);
+
+                    return current.concat(addNameList);
+                } else if (current.length > select.length) {
+                    return current.filter((v) => select.indexOf(v) !== -1);
+                } else {
+                    return current;
+                }
+            })(currentNameList, selectNameList);
+
+            console.log(updateNameList);
+            $("#user_pain_part").text(updateNameList.join(", "));
+            // console.log(list);
+        }
+    }
+
+    $('#body-view-image')[0].addEventListener('load', function () {
+        console.log("load body image");
+        const bodyDoc = document.getElementById("body-view-image").contentDocument;
+        const bodyPloygon = d3.select(bodyDoc).selectAll("polygon");
+
+        bodyPloygon.attr("data_selceted", "false");
+
+        bodyPloygon.on("click", function () {
+            const p = d3.select(this);
+            const bodyID = p.attr("id").split("_")[2];
+
+            console.log(bodyID);
+            updateBodySelected(bodyID, p, bodyPloygon);
+        });
+        d3.select(bodyDoc)
+            .selectAll("text")
+            .filter(function () {
+                return !d3.select(this).classed("st_label");
+            })
+            .on("click", function () {
+                const bodyID = d3.select(this).text().trim();
+                const idName = "#part_x5F_".concat(bodyID);
+                console.log(idName);
+                const p = d3.select(this.parentNode.parentNode).select(idName);
+
+                updateBodySelected(bodyID, p, bodyPloygon);
+            });
+    }, true);
+
+    // ========================================================================
 
 
 
