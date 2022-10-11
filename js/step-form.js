@@ -92,7 +92,7 @@ layui.use(["form", "miniTab", "step"], function () {
         ["其他", -1],
     ];
     const userPainAggrFactorTag = "user_pain_aggr_factor";
-    addCheckBox(userPainAggrFactorTag, userPainAggrFactorList);
+    addCheckBox(userPainAggrFactorTag, userPainAggrFactorList, true);
 
     // userPainReliFactor
     const userPainReliFactorList = [
@@ -105,7 +105,7 @@ layui.use(["form", "miniTab", "step"], function () {
         ["其他", -1],
     ];
     const userPainReliFactorTag = "user_pain_reli_factor";
-    addCheckBox(userPainReliFactorTag, userPainReliFactorList);
+    addCheckBox(userPainReliFactorTag, userPainReliFactorList, true);
 
 
     var marginSlider = document.getElementById("pain_leval_slider");
