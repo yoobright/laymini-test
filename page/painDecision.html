@@ -89,6 +89,26 @@
           margin: 15px 0px 15px 0px;
         }
       }
+
+      .m-flow-buttons {
+        position: absolute;
+        bottom: 60px;
+        right: 200px;
+      }
+
+      .m-input-step-form {
+        max-height: 400px;
+        margin: 0 auto;
+        max-width: 1000px;
+        padding-top: 10px;
+        overflow-y: scroll;
+      }
+
+      @media screen and (min-width: 1400px) {
+        .m-input-step-form {
+          max-height: 500px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -105,16 +125,7 @@
               >
                 <div carousel-item>
                   <div>
-                    <form
-                      class="layui-form"
-                      style="
-                        margin: 0 auto;
-                        max-width: 1000px;
-                        padding-top: 40px;
-                        max-height: 500px;
-                        overflow-y: scroll;
-                      "
-                    >
+                    <form class="layui-form m-input-step-form">
                       <div class="layui-form-item">
                         <label class="layui-form-label"
                           >姓名<span style="color: crimson">* </span></label
@@ -171,111 +182,216 @@
                         </div>
                       </div>
                       <div class="layui-form-item">
+                        <label class="layui-form-label"
+                          >年龄<span style="color: crimson">* </span
+                          >（岁）</label
+                        >
+                        <div class="layui-input-block">
+                          <input
+                            type="number"
+                            class="layui-input"
+                            lay-verify="required"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
                         <label class="layui-form-label">身高（cm）</label>
                         <div class="layui-input-block">
-                          <input type="number" class="layui-input" />
+                          <input
+                            type="number"
+                            class="layui-input"
+                            name="user_height"
+                            id="user_height"
+                          />
                         </div>
                       </div>
                       <div class="layui-form-item">
                         <label class="layui-form-label">体重（cm）</label>
                         <div class="layui-input-block">
-                          <input type="number" class="layui-input" />
+                          <input
+                            type="number"
+                            class="layui-input"
+                            name="user_weight"
+                            id="user_weight"
+                          />
                         </div>
                       </div>
                       <div class="layui-form-item">
                         <label class="layui-form-label">职业</label>
                         <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_job"
+                            id="user_job"
+                          />
                         </div>
                       </div>
                       <div class="layui-form-item">
                         <label class="layui-form-label">受教育程度</label>
                         <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_edu"
+                            id="user_edu"
+                          />
                         </div>
                       </div>
                       <div class="layui-form-item">
-                        <label class="layui-form-label">特殊人群</label>
+                        <label class="layui-form-label"
+                          >特殊人群<span style="color: crimson">* </span></label
+                        >
                         <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">原发肿瘤诊断</label>
-                        <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">肿瘤转移情况</label>
-                        <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">肿瘤治疗方式</label>
-                        <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">基础疾病</label>
-                        <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">肝功能</label>
-                        <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">肾功能</label>
-                        <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">心功能</label>
-                        <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">过敏史</label>
-                        <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_special"
+                            id="user_special"
+                          />
                         </div>
                       </div>
                       <div class="layui-form-item">
                         <label class="layui-form-label">身体状况</label>
                         <div class="layui-input-block">
-                          <input type="text" class="layui-input" />
+                          <input
+                            type="checkbox"
+                            name="health_switch"
+                            id="health_switch"
+                            lay-skin="switch"
+                            lay-text="健康|"
+                          />
                         </div>
                       </div>
-                      <div style="text-align: center">
+                      <div class="layui-form-item">
+                        <label class="layui-form-label"
+                          >原发肿瘤诊断<span style="color: crimson"
+                            >*
+                          </span></label
+                        >
+                        <div class="layui-input-block">
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_tumor"
+                            id="user_tumor"
+                          />
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">肿瘤转移情况</label>
+                        <div class="layui-input-block">
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_tumor_metastasis"
+                            id="user_tumor_metastasis"
+                          />
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">肿瘤治疗方式</label>
+                        <div class="layui-input-block">
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_tumor_treatment"
+                            id="user_tumor_treatment"
+                          />
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">基础疾病</label>
+                        <div class="layui-input-block">
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_illness"
+                            id="user_illness"
+                          />
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label"
+                          >肝功能<span style="color: crimson">* </span></label
+                        >
+                        <div class="layui-input-block">
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_liver_function"
+                            id="user_liver_function"
+                          />
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label"
+                          >肾功能<span style="color: crimson">* </span></label
+                        >
+                        <div class="layui-input-block">
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_kidney_function"
+                            id="user_kidney_function"
+                          />
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label"
+                          >心功能<span style="color: crimson">* </span></label
+                        >
+                        <div class="layui-input-block">
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_cardiac_function"
+                            id="user_cardiac_function"
+                          />
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label"
+                          >过敏史<span style="color: crimson">* </span
+                          >（药物/食物）</label
+                        >
+                        <div class="layui-input-block">
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_allergy"
+                            id="user_allergy"
+                          />
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label"
+                          >身体状况<span style="color: crimson">* </span
+                          >（PS评分）</label
+                        >
+                        <div class="layui-input-block">
+                          <input
+                            type="text"
+                            class="layui-input"
+                            name="user_physical"
+                            id="user_physical"
+                          />
+                        </div>
+                      </div>
+                      <div style="text-align: center" class="m-flow-buttons">
                         <button
                           class="layui-btn layui-btn-normal"
                           lay-submit
                           lay-filter="formStep"
                         >
-                          &emsp;下一步&emsp;
+                          下一步
                         </button>
                       </div>
                     </form>
                   </div>
                   <div>
-                    <form
-                      class="layui-form"
-                      style="
-                        margin: 0 auto;
-                        max-width: 1000px;
-                        padding-top: 40px;
-                        max-height: 500px;
-                        overflow-y: scroll;
-                      "
-                    >
+                    <form class="layui-form m-input-step-form">
                       <div class="layui-form-item">
                         <label
                           class="layui-form-label"
@@ -438,10 +554,10 @@
                           />
                         </div>
                       </div>
-                      <div style="text-align: center">
+                      <div style="text-align: center" class="m-flow-buttons">
                         <button
                           type="button"
-                          class="layui-btn layui-btn-primary pre"
+                          class="layui-btn layui-btn-normal pre"
                         >
                           上一步
                         </button>
@@ -450,22 +566,13 @@
                           lay-submit
                           lay-filter="formStep2"
                         >
-                          &emsp;下一步&emsp;
+                          下一步
                         </button>
                       </div>
                     </form>
                   </div>
                   <div>
-                    <form
-                      class="layui-form"
-                      style="
-                        margin: 0 auto;
-                        max-width: 1000px;
-                        padding-top: 40px;
-                        max-height: 500px;
-                        overflow-y: scroll;
-                      "
-                    >
+                    <form class="layui-form m-input-step-form">
                       <div class="layui-form-item">
                         <label class="layui-form-label"
                           >既往是否使用过镇痛药<span style="color: crimson"
@@ -492,22 +599,39 @@
                           />
                         </div>
                       </div>
+                      <div style="text-align: center" class="m-flow-buttons">
+                        <button
+                          class="layui-btn layui-btn-primary"
+                          id="button-renew"
+                        >
+                          新的输入
+                        </button>
+                        <button
+                          type="button"
+                          class="layui-btn layui-btn-normal pre"
+                        >
+                          上一步
+                        </button>
+                        <button
+                          class="layui-btn layui-btn-normal"
+                          lay-submit
+                          lay-filter="formStep3"
+                        >
+                          &emsp;提交&emsp;
+                        </button>
+                        <!-- 
+                        <button class="layui-btn layui-btn-normal pre1">
+                          上一步
+                        </button>
+                        <button
+                          class="layui-btn layui-btn-normal"
+                          lay-submit
+                          lay-filter="formStep3"
+                        >
+                          &emsp;提交&emsp;
+                        </button> -->
+                      </div>
                     </form>
-                    <div style="text-align: center; margin-top: 50px">
-                      <button class="layui-btn layui-btn-primary renew">
-                        新的输入
-                      </button>
-                      <button class="layui-btn layui-btn-primary pre">
-                        上一步
-                      </button>
-                      <button
-                        class="layui-btn layui-btn-normal"
-                        lay-submit
-                        lay-filter="formStep3"
-                      >
-                        &emsp;提交&emsp;
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>

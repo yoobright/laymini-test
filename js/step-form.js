@@ -33,7 +33,7 @@ layui.use(["form", "miniTab", "step"], function () {
             if (required) {
                 blockElement.attr("lay-verify", "radioRequired");
             }
-            
+
             if (Array.isArray(elementList[0])) {
                 const items = elementList.map((v) =>
                     `<input type="checkbox" name="${forType}" id="${forType}" 
@@ -190,13 +190,18 @@ layui.use(["form", "miniTab", "step"], function () {
     }
 
     form.render();
+    const stepHieght = $(window).width() >= 1600 ? "680px" : "480px";
+    console.log($(window).width());
+    
+    // const stepHieght = "680px";
+    console.log(stepHieght);
 
     step.render({
         elem: "#stepForm",
         filter: "stepForm",
         width: "100%", //设置容器宽度
         stepWidth: "800px",
-        height: "600px",
+        height: stepHieght,
         stepItems: [
             {
                 title: "基本信息",
@@ -238,7 +243,7 @@ layui.use(["form", "miniTab", "step"], function () {
         step.next("#stepForm");
     });
 
-    $(".renew").click(function () {
+    $("#button-renew").click(function () {
         layui.layer.msg("重新输入");
         // clearInputData();
         // layui.form.render();
