@@ -446,11 +446,7 @@
                           >（PS评分）</label
                         >
                         <div class="layui-input-inline" style="width: 400px">
-                          <select
-                            name="user_physical"
-                            id="user_physical"
-                            class="required"
-                          >
+                          <select name="user_physical" id="user_physical">
                             <option
                               value=""
                               style="color: gray"
@@ -458,22 +454,15 @@
                               disabled
                               hidden
                             ></option>
-                            <option value="0">
-                              0分：活动能力完全正常，与起病前活动能力无任何差异
+                            <option value="1">1分:能自由走动及从事轻体力活动，包括一般家务或办公室工作，但不能从事较重的体力活动
                             </option>
-                            <option value="1">
-                              1分：能自由走动及从事轻体力活动，包括一般家务或办公室工作，但不能从事较重的体力活动
+                            <option value="2">2分:能自由走动及生活自理，但已丧失工作能力，日间不少于一半日间时间可以起床活动
                             </option>
-                            <option value="2">
-                              2分：能自由走动及生活自理，但已丧失工作能力，日间不少于一半日间时间可以起床活动
+                            <option value="3">3分:生活仅能部分自理，日间一半以上时间卧床或坐轮椅
                             </option>
-                            <option value="3">
-                              3分：生活仅能部分自理，日间一半以上时间卧床或坐轮椅
+                            <option value="4">4分:卧床不起，生活不能自理
                             </option>
-                            <option value="4">
-                              4分：卧床不起，生活不能自理
-                            </option>
-                            <option value="5">5分：死亡</option>
+                            <!-- <option value="5">5分:死亡</option> -->
                           </select>
                         </div>
                       </div>
@@ -779,8 +768,9 @@
     </div>
     <script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
     <script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
-    <script src="../js/step-form.js"></script>
     <script src="../js/nouislider.min.js"></script>
     <script src="../js/d3.v5.min.js"></script>
+    <!-- my js -->
+    <script src="js/step-form.js"></script>
   </body>
 </html>

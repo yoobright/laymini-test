@@ -1,0 +1,80 @@
+{
+  "ignorePatterns": ["js/*.js", "js/*/*.js"],
+  "globals": {
+    "d3": "readonly",
+    "noUiSlider": "readonly",
+    "ort": "readonly",
+    "layui": "readonly"
+  },
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 12
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "eqeqeq": ["error", "always"],
+    "dot-notation": "error",
+    "wrap-iife": ["error", "any"],
+    "require-unicode-regexp": "error",
+    "no-trailing-spaces": "error",
+    "max-depth": ["error", 5],
+    // "no-console": "error",
+    "prefer-const": ["error", { "destructuring": "all" }],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true,
+        "allowTaggedTemplates": true
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": false,
+        "caughtErrors": "none"
+      }
+    ],
+    "no-use-before-define": [
+      "error",
+      {
+        "variables": false,
+        "functions": false,
+        "classes": false
+      }
+    ],
+    "no-useless-computed-key": "error",
+    "no-useless-concat": "error",
+    "prefer-arrow-callback": "error",
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "markers": ["/"],
+        "block": {
+          "exceptions": ["*"],
+          "balanced": true
+        }
+      }
+    ],
+    "no-irregular-whitespace": [
+      "error",
+      {
+        "skipStrings": true,
+        "skipComments": false,
+        "skipRegExps": true,
+        "skipTemplates": true
+      }
+    ]
+  }
+}
