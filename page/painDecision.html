@@ -11,7 +11,7 @@
     />
     <link
       rel="stylesheet"
-      href="../lib/layui-v2.6.3/css/layui.css"
+      href="../lib/layui-v2.6.13/css/layui.css"
       media="all"
     />
     <link rel="stylesheet" href="../css/public.css" media="all" />
@@ -237,14 +237,8 @@
                       <div class="layui-form-item">
                         <label class="layui-form-label">受教育程度</label>
                         <div class="layui-input-inline" style="width: 400px">
-                          <select name="user_edu" id="user_edu">
-                            <option
-                              value=""
-                              style="color: gray"
-                              selected
-                              disabled
-                              hidden
-                            ></option>
+                          <select name="user_edu" id="user_edu" lay-search>
+                            <option value=""></option>
                             <option value="1">小学及以下</option>
                             <option value="2">初中</option>
                             <option value="3">高中</option>
@@ -261,13 +255,7 @@
                         >
                         <div class="layui-input-inline" style="width: 400px">
                           <select name="user_special" id="user_special">
-                            <option
-                              value=""
-                              style="color: gray"
-                              selected
-                              disabled
-                              hidden
-                            ></option>
+                            <option value=""></option>
                             <option value="1">老年人(65岁及以上)</option>
                             <option value="2">儿童(14岁及以下)</option>
                             <option value="3">孕妇</option>
@@ -281,10 +269,9 @@
                         <div class="layui-input-block">
                           <input
                             type="checkbox"
-                            name="health_switch"
-                            id="health_switch"
                             lay-skin="switch"
                             lay-text="健康|"
+                            lay-filter="healthSwitch"
                           />
                         </div>
                       </div>
@@ -321,13 +308,7 @@
                             name="user_tumor_treatment"
                             id="user_tumor_treatment"
                           >
-                            <option
-                              value=""
-                              style="color: gray"
-                              selected
-                              disabled
-                              hidden
-                            ></option>
+                            <option value=""></option>
                             <option value="1">外科切除</option>
                             <option value="2">放射治疗</option>
                             <option value="3">中医药治疗</option>
@@ -341,13 +322,7 @@
                         <label class="layui-form-label">基础疾病</label>
                         <div class="layui-input-inline" style="width: 400px">
                           <select name="user_illness" id="user_illness">
-                            <option
-                              value=""
-                              style="color: gray"
-                              selected
-                              disabled
-                              hidden
-                            ></option>
+                            <option value=""></option>
                             <option value="1">糖尿病</option>
                             <option value="2">高血压</option>
                             <option value="3">心脑血管疾病</option>
@@ -365,13 +340,7 @@
                             id="user_liver_function"
                             class="required"
                           >
-                            <option
-                              value=""
-                              style="color: gray"
-                              selected
-                              disabled
-                              hidden
-                            ></option>
+                            <option value=""></option>
                             <option value="1">正常</option>
                             <option value="2">不全</option>
                             <option value="3">严重不全</option>
@@ -388,13 +357,7 @@
                             id="user_kidney_function"
                             class="required"
                           >
-                            <option
-                              value=""
-                              style="color: gray"
-                              selected
-                              disabled
-                              hidden
-                            ></option>
+                            <option value=""></option>
                             <option value="1">正常</option>
                             <option value="2">不全</option>
                             <option value="3">严重不全</option>
@@ -411,13 +374,7 @@
                             id="user_cardiac_function"
                             class="required"
                           >
-                            <option
-                              value=""
-                              style="color: gray"
-                              selected
-                              disabled
-                              hidden
-                            ></option>
+                            <option value=""></option>
                             <option value="1">正常</option>
                             <option value="2">Ⅰ级</option>
                             <option value="3">Ⅱ级</option>
@@ -446,21 +403,26 @@
                           >（PS评分）</label
                         >
                         <div class="layui-input-inline" style="width: 400px">
-                          <select name="user_physical" id="user_physical">
-                            <option
-                              value=""
-                              style="color: gray"
-                              selected
-                              disabled
-                              hidden
-                            ></option>
-                            <option value="1">1分:能自由走动及从事轻体力活动，包括一般家务或办公室工作，但不能从事较重的体力活动
+                          <select
+                            name="user_physical"
+                            id="user_physical"
+                            lay-search
+                          >
+                            <option value=""></option>
+                            <option value="0">
+                              0分:活动能力完全正常，与起病前活动能力无任何差异
                             </option>
-                            <option value="2">2分:能自由走动及生活自理，但已丧失工作能力，日间不少于一半日间时间可以起床活动
+                            <option value="1">
+                              1分:能自由走动及从事轻体力活动，包括一般家务或办公室工作，但不能从事较重的体力活动
                             </option>
-                            <option value="3">3分:生活仅能部分自理，日间一半以上时间卧床或坐轮椅
+                            <option value="2">
+                              2分:能自由走动及生活自理，但已丧失工作能力，日间不少于一半日间时间可以起床活动
                             </option>
-                            <option value="4">4分:卧床不起，生活不能自理
+                            <option value="3">
+                              3分:生活仅能部分自理，日间一半以上时间卧床或坐轮椅
+                            </option>
+                            <option value="4">
+                              4分:卧床不起，生活不能自理
                             </option>
                             <!-- <option value="5">5分:死亡</option> -->
                           </select>
@@ -766,7 +728,7 @@
         </div>
       </div>
     </div>
-    <script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+    <script src="../lib/layui-v2.6.13/layui.js" charset="utf-8"></script>
     <script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
     <script src="../js/nouislider.min.js"></script>
     <script src="../js/d3.v5.min.js"></script>

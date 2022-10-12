@@ -216,6 +216,13 @@ layui.use(["form", "miniTab", "step"], function () {
     ],
   });
 
+  form.on("switch(healthSwitch)", (data) => {
+    if (data.elem.checked === true) {
+      setHealth();
+      form.render();
+    }
+  });
+
   form.on("submit(formStep)", (data) => {
     step.next("#stepForm");
     return false;
@@ -406,4 +413,16 @@ layui.use(["form", "miniTab", "step"], function () {
 
     $("#used_drug").prop("checked", false);
   }
+
+  // ========================================================================
+  function setHealth() {
+    $("#user_tumor").val("无");
+    $("#user_liver_function").val("1");
+    $("#user_kidney_function").val("1");
+    $("#user_cardiac_function").val("1");
+    $("#user_allergy").val("无");
+    $("#user_physical").val("0");
+  }
+
+
 });
