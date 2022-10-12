@@ -30,9 +30,9 @@
       div.input-textarea {
         display: inline;
       }
-      .layui-form-item .layui-input-inline {
+      /* .layui-form-item .layui-input-inline {
         width: fit-content;
-      }
+      } */
 
       div.input-textarea textarea {
         width: 360px;
@@ -111,7 +111,7 @@
 
       @media screen and (min-width: 1400px) {
         .m-input-step-form {
-          max-height: 500px;
+          max-height: calc(100% - 180px);
         }
       }
     </style>
@@ -197,20 +197,18 @@
                               placeholder="yyyy-MM"
                             />
                           </div>
-                          <div class="layui-inline">
-                            <label class="layui-form-label"
-                              >年龄<span style="color: crimson">* </span
-                              >（岁）</label
-                            >
-                            <div class="layui-input-inline">
-                              <input
-                                type="text"
-                                class="layui-input"
-                                lay-verify="required"
-                                name="user_age"
-                                id="user_age"
-                              />
-                            </div>
+                          <label class="layui-form-label"
+                            >年龄<span style="color: crimson">* </span
+                            >（岁）</label
+                          >
+                          <div class="layui-input-inline">
+                            <input
+                              type="text"
+                              class="layui-input"
+                              lay-verify="required"
+                              name="user_age"
+                              id="user_age"
+                            />
                           </div>
                         </div>
                       </div>
@@ -226,19 +224,18 @@
                               id="user_height"
                             />
                           </div>
-                          <div class="layui-inline">
-                            <label class="layui-form-label">体重（cm）</label>
-                            <div class="layui-input-inline">
-                              <input
-                                type="number"
-                                class="layui-input"
-                                name="user_weight"
-                                id="user_weight"
-                              />
-                            </div>
+                          <label class="layui-form-label">体重（cm）</label>
+                          <div class="layui-input-inline">
+                            <input
+                              type="number"
+                              class="layui-input"
+                              name="user_weight"
+                              id="user_weight"
+                            />
                           </div>
                         </div>
                       </div>
+
                       <div class="layui-form-item">
                         <div class="layui-inline">
                           <label class="layui-form-label">职业</label>
@@ -250,20 +247,18 @@
                               id="user_job"
                             />
                           </div>
-                          <div class="layui-inline">
-                            <label class="layui-form-label">受教育程度</label>
-                            <div class="layui-input-inline">
-                              <select name="user_edu" id="user_edu" lay-search>
-                                <option value=""></option>
-                                <option value="1">小学及以下</option>
-                                <option value="2">初中</option>
-                                <option value="3">高中</option>
-                                <option value="4">专科/高职</option>
-                                <option value="5">本科</option>
-                                <option value="6">硕士</option>
-                                <option value="7">博士</option>
-                              </select>
-                            </div>
+                          <label class="layui-form-label">受教育程度</label>
+                          <div class="layui-input-inline">
+                            <select name="user_edu" id="user_edu" lay-search>
+                              <option value=""></option>
+                              <option value="1">小学及以下</option>
+                              <option value="2">初中</option>
+                              <option value="3">高中</option>
+                              <option value="4">专科/高职</option>
+                              <option value="5">本科</option>
+                              <option value="6">硕士</option>
+                              <option value="7">博士</option>
+                            </select>
                           </div>
                         </div>
                       </div>
@@ -348,59 +343,59 @@
                           </select>
                         </div>
                       </div>
+
                       <div class="layui-form-item">
-                        <label class="layui-form-label"
-                          >肝功能<span style="color: crimson">* </span></label
-                        >
-                        <div class="layui-input-inline" style="width: 400px">
-                          <select
-                            name="user_liver_function"
-                            id="user_liver_function"
-                            class="required"
+                        <div class="layui-inline" style="max-width: 680px;">
+                          <label class="layui-form-label"
+                            >肝功能<span style="color: crimson">* </span></label
                           >
-                            <option value=""></option>
-                            <option value="1">正常</option>
-                            <option value="2">不全</option>
-                            <option value="3">严重不全</option>
-                          </select>
+                          <div class="layui-input-inline">
+                            <select
+                              name="user_liver_function"
+                              id="user_liver_function"
+                              class="required"
+                            >
+                              <option value=""></option>
+                              <option value="1">正常</option>
+                              <option value="2">不全</option>
+                              <option value="3">严重不全</option>
+                            </select>
+                          </div>
+                          <label class="layui-form-label"
+                            >肾功能<span style="color: crimson">* </span></label
+                          >
+                          <div class="layui-input-inline">
+                            <select
+                              name="user_kidney_function"
+                              id="user_kidney_function"
+                              class="required"
+                            >
+                              <option value=""></option>
+                              <option value="1">正常</option>
+                              <option value="2">不全</option>
+                              <option value="3">严重不全</option>
+                            </select>
+                          </div>
+                          <label class="layui-form-label"
+                            >心功能<span style="color: crimson">* </span></label
+                          >
+                          <div class="layui-input-inline">
+                            <select
+                              name="user_cardiac_function"
+                              id="user_cardiac_function"
+                              class="required"
+                            >
+                              <option value=""></option>
+                              <option value="1">正常</option>
+                              <option value="2">Ⅰ级</option>
+                              <option value="3">Ⅱ级</option>
+                              <option value="4">Ⅲ级</option>
+                              <option value="5">Ⅳ级</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label"
-                          >肾功能<span style="color: crimson">* </span></label
-                        >
-                        <div class="layui-input-inline" style="width: 400px">
-                          <select
-                            name="user_kidney_function"
-                            id="user_kidney_function"
-                            class="required"
-                          >
-                            <option value=""></option>
-                            <option value="1">正常</option>
-                            <option value="2">不全</option>
-                            <option value="3">严重不全</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label"
-                          >心功能<span style="color: crimson">* </span></label
-                        >
-                        <div class="layui-input-inline" style="width: 400px">
-                          <select
-                            name="user_cardiac_function"
-                            id="user_cardiac_function"
-                            class="required"
-                          >
-                            <option value=""></option>
-                            <option value="1">正常</option>
-                            <option value="2">Ⅰ级</option>
-                            <option value="3">Ⅱ级</option>
-                            <option value="4">Ⅲ级</option>
-                            <option value="5">Ⅳ级</option>
-                          </select>
-                        </div>
-                      </div>
+
                       <div class="layui-form-item">
                         <label class="layui-form-label"
                           >过敏史<span style="color: crimson">* </span
@@ -501,7 +496,10 @@
                             >*
                           </span></label
                         >
-                        <div class="layui-input-inline">
+                        <div
+                          class="layui-input-inline"
+                          style="width: fit-content"
+                        >
                           <object
                             id="body-view-image"
                             type="image/svg+xml"
@@ -522,7 +520,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="layui-form-item">
+                      <div class="layui-form-item" style="max-width: 680px;">
                         <label
                           class="layui-form-label"
                           id="user_pain_character_label"
@@ -556,7 +554,7 @@
                         </div>
                       </div>
 
-                      <div class="layui-form-item">
+                      <div class="layui-form-item" style="max-width: 680px;">
                         <label
                           class="layui-form-label"
                           id="user_pain_aggr_factor_label"
@@ -565,7 +563,7 @@
                           </span></label
                         >
                       </div>
-                      <div class="layui-form-item">
+                      <div class="layui-form-item" style="max-width: 680px;">
                         <label
                           class="layui-form-label"
                           id="user_pain_reli_factor_label"
@@ -574,7 +572,7 @@
                           </span></label
                         >
                       </div>
-                      <div class="layui-form-item">
+                      <div class="layui-form-item" style="max-width: 680px;">
                         <label class="layui-form-label"
                           >疼痛爆发类型<span style="color: crimson"
                             >*
@@ -639,13 +637,13 @@
                             value="2"
                             title="≥3"
                           />
-                          <input
+                          <!-- <input
                             type="radio"
                             name="user_pain_breakout_freq"
                             id="user_pain_breakout_freq"
                             value="3"
                             title="无"
-                          />
+                          /> -->
                         </div>
                       </div>
                       <div style="text-align: center" class="m-flow-buttons">
@@ -713,17 +711,6 @@
                         >
                           &emsp;提交&emsp;
                         </button>
-                        <!-- 
-                        <button class="layui-btn layui-btn-normal pre1">
-                          上一步
-                        </button>
-                        <button
-                          class="layui-btn layui-btn-normal"
-                          lay-submit
-                          lay-filter="formStep3"
-                        >
-                          &emsp;提交&emsp;
-                        </button> -->
                       </div>
                     </form>
                   </div>

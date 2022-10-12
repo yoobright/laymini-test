@@ -191,30 +191,55 @@ layui.use(["form", "miniTab", "step", "laydate"], function () {
   }
 
   form.render();
-  const stepHieght = $(window).width() >= 1600 ? "680px" : "480px";
-  console.log($(window).width());
 
-  // const stepHieght = "680px";
-  console.log(stepHieght);
+  function stepsDraw() {
+    const stepHieght = `${$(window).height() - 130}px`;
+    console.log($(window).width());
+    console.log($(window).height());
 
-  step.render({
-    elem: "#stepForm",
-    filter: "stepForm",
-    width: "100%", // 设置容器宽度
-    stepWidth: "800px",
-    height: stepHieght,
-    stepItems: [
-      {
-        title: "基本信息",
-      },
-      {
-        title: "疼痛评估",
-      },
-      {
-        title: "既往用药",
-      },
-    ],
-  });
+    // const stepHieght = "680px";
+    console.log(stepHieght);
+
+    step.render({
+      elem: "#stepForm",
+      filter: "stepForm",
+      width: "100%", // 设置容器宽度
+      stepWidth: "800px",
+      height: stepHieght,
+      stepItems: [
+        {
+          title: "基本信息",
+        },
+        {
+          title: "疼痛评估",
+        },
+        {
+          title: "既往用药",
+        },
+      ],
+    });
+  }
+
+  stepsDraw();
+
+  // $(window).resize(() => {
+  //   const stepHieght = `${$(window).height() - 130}px`;
+  //   console.log($(window).width());
+  //   console.log($(window).height());
+
+  //   // const stepHieght = "680px";
+  //   console.log(stepHieght);
+
+  //   step.render({
+  //     elem: "#stepForm",
+  //     filter: "stepForm",
+  //     width: "100%", // 设置容器宽度
+  //     stepWidth: "800px",
+  //     height: stepHieght,
+  //     stepItems: []
+  //   });
+  // });
+
 
   form.on("switch(healthSwitch)", (data) => {
     if (data.elem.checked === true) {
@@ -236,10 +261,12 @@ layui.use(["form", "miniTab", "step", "laydate"], function () {
   form.on("submit(formStep3)", (data) => {
     layui.layer.msg("提交成功");
     const herfTab = "page/painResult.html";
-    setTimeout(() => {miniTab.openNewTabByIframe({
-      href: herfTab,
-      title: "辅助决策结果",
-    }); }, 2000);
+    setTimeout(() => {
+      miniTab.openNewTabByIframe({
+        href: herfTab,
+        title: "辅助决策结果",
+      });
+    }, 2000);
 
     return false;
   });
@@ -267,7 +294,7 @@ layui.use(["form", "miniTab", "step", "laydate"], function () {
     type: "month",
     max: 0,
     theme: "#1e9fff",
-    done: function(value, date, endDate){
+    done: function (value, date, endDate) {
       // console.log(value);
       console.log(date);
       if (date) {
