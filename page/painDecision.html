@@ -187,73 +187,91 @@
                         </div>
                       </div>
                       <div class="layui-form-item">
-                        <label class="layui-form-label"
-                          >年龄<span style="color: crimson">* </span
-                          >（岁）</label
-                        >
-                        <div class="layui-input-block">
-                          <input
-                            type="number"
-                            class="layui-input"
-                            lay-verify="required"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">身高（cm）</label>
-                        <div class="layui-input-block">
-                          <input
-                            type="number"
-                            class="layui-input"
-                            name="user_height"
-                            id="user_height"
-                          />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">体重（cm）</label>
-                        <div class="layui-input-block">
-                          <input
-                            type="number"
-                            class="layui-input"
-                            name="user_weight"
-                            id="user_weight"
-                          />
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">职业</label>
-                        <div class="layui-input-block">
-                          <input
-                            type="text"
-                            class="layui-input"
-                            name="user_job"
-                            id="user_job"
-                          />
+                        <div class="layui-inline">
+                          <label class="layui-form-label">出生</label>
+                          <div class="layui-input-inline">
+                            <input
+                              type="text"
+                              class="layui-input"
+                              id="user_birth"
+                              placeholder="yyyy-MM"
+                            />
+                          </div>
+                          <div class="layui-inline">
+                            <label class="layui-form-label"
+                              >年龄<span style="color: crimson">* </span
+                              >（岁）</label
+                            >
+                            <div class="layui-input-inline">
+                              <input
+                                type="text"
+                                class="layui-input"
+                                lay-verify="required"
+                                name="user_age"
+                                id="user_age"
+                              />
+                            </div>
+                          </div>
                         </div>
                       </div>
 
                       <div class="layui-form-item">
-                        <label class="layui-form-label">受教育程度</label>
-                        <div class="layui-input-inline" style="width: 400px">
-                          <select name="user_edu" id="user_edu" lay-search>
-                            <option value=""></option>
-                            <option value="1">小学及以下</option>
-                            <option value="2">初中</option>
-                            <option value="3">高中</option>
-                            <option value="4">专科/高职</option>
-                            <option value="5">本科</option>
-                            <option value="6">硕士</option>
-                            <option value="7">博士</option>
-                          </select>
+                        <div class="layui-inline">
+                          <label class="layui-form-label">身高（cm）</label>
+                          <div class="layui-input-inline">
+                            <input
+                              type="number"
+                              class="layui-input"
+                              name="user_height"
+                              id="user_height"
+                            />
+                          </div>
+                          <div class="layui-inline">
+                            <label class="layui-form-label">体重（cm）</label>
+                            <div class="layui-input-inline">
+                              <input
+                                type="number"
+                                class="layui-input"
+                                name="user_weight"
+                                id="user_weight"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <div class="layui-inline">
+                          <label class="layui-form-label">职业</label>
+                          <div class="layui-input-inline">
+                            <input
+                              type="text"
+                              class="layui-input"
+                              name="user_job"
+                              id="user_job"
+                            />
+                          </div>
+                          <div class="layui-inline">
+                            <label class="layui-form-label">受教育程度</label>
+                            <div class="layui-input-inline">
+                              <select name="user_edu" id="user_edu" lay-search>
+                                <option value=""></option>
+                                <option value="1">小学及以下</option>
+                                <option value="2">初中</option>
+                                <option value="3">高中</option>
+                                <option value="4">专科/高职</option>
+                                <option value="5">本科</option>
+                                <option value="6">硕士</option>
+                                <option value="7">博士</option>
+                              </select>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="layui-form-item">
                         <label class="layui-form-label"
                           >特殊人群<span style="color: crimson">* </span></label
                         >
-                        <div class="layui-input-inline" style="width: 400px">
+                        <div class="layui-input-inline">
                           <select name="user_special" id="user_special">
                             <option value=""></option>
                             <option value="1">老年人(65岁及以上)</option>

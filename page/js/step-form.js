@@ -1,5 +1,5 @@
 // eslint-disable-next-line prefer-arrow-callback
-layui.use(["form", "miniTab", "step"], function () {
+layui.use(["form", "miniTab", "step", "laydate"], function () {
   var $ = layui.$,
     form = layui.form,
     step = layui.step,
@@ -236,10 +236,11 @@ layui.use(["form", "miniTab", "step"], function () {
   form.on("submit(formStep3)", (data) => {
     layui.layer.msg("提交成功");
     const herfTab = "page/painResult.html";
-    miniTab.openNewTabByIframe({
+    setTimeout(() => {miniTab.openNewTabByIframe({
       href: herfTab,
       title: "辅助决策结果",
-    });
+    }); }, 2000);
+
     return false;
   });
 
@@ -258,6 +259,35 @@ layui.use(["form", "miniTab", "step"], function () {
     // step.next("#stepForm");
     location.reload();
   });
+
+  var laydate = layui.laydate;
+
+  laydate.render({
+    elem: "#user_birth", // 指定元素
+    type: "month",
+    max: 0,
+    theme: "#1e9fff",
+    done: function(value, date, endDate){
+      // console.log(value);
+      console.log(date);
+      if (date) {
+        const age = getAge(date.year, date.month);
+        $("#user_age").val(age);
+        form.render();
+      }
+    }
+  });
+
+  function getAge(year, month) {
+    const now = new Date();
+    const nowYear = now.getFullYear();
+    const nowMonth = now.getMonth() + 1;
+    let age = nowYear - year;
+    if (nowMonth < month) {
+      age--;
+    }
+    return age;
+  }
 
   // ========================================================================
   // body view
